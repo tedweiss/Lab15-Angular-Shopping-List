@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <title>Angular Shopping list</title>
+</head>
+	<body ng-app="myModule" ng-controller="myController">
+		<h1>My Shopping List</h1>
+		<input type="text" placeholder="Search" ng-model="listItemOrPrice">
+		<p ng-repeat="product in groceries | filter: listItemOrPrice | orderBy: 'name'"><input type="text" placeholder="New item" ng-model="product.name">: $<input type="number"ng-model="product.price"> <input type="number" ng-model="product.quantity">{{product.price*product.quantity | currency}}
+		<p>
+
+		<h2>Grand Total: ${{total().toFixed(2)}}</h2>
+		<p>Click to add another item. <button ng-click="addGroceries()" name="button" value="add" id="add">Add</button></p>
+
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
